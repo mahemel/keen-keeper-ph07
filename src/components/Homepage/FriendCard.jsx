@@ -3,12 +3,12 @@ import Link from "next/link";
 
 const FriendCard = ({ friend }) => {
     const { name, picture, days_since_contact, status, tags } = friend;
-    let statusStyle = "#244D3F";
+    let statusStyle = "bg-[#244D3F]";
 
     if (status === "Overdue") {
-        statusStyle = "#EF4444";
+        statusStyle = "bg-[#EF4444]";
     } else if (status === "Almost Due") {
-        statusStyle = "#EFAD44";
+        statusStyle = "bg-[#EFAD44]";
     }
 
     return (
@@ -42,7 +42,7 @@ const FriendCard = ({ friend }) => {
                         ))}
                     </div>
                     <div
-                        className={`badge rounded-full bg-[${statusStyle}]  text-white font-medium text-[12px] border-0 px-2`}
+                        className={`badge rounded-full ${statusStyle}  text-white font-medium text-[12px] border-0 px-2`}
                     >
                         {status}
                     </div>
