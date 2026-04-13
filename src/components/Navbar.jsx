@@ -1,6 +1,29 @@
+import Logo from "@/assets/logo.png";
+import Image from "next/image";
+import { PiChartLineBold } from "react-icons/pi";
+import { RiHome2Line } from "react-icons/ri";
+import { TbClockHour3 } from "react-icons/tb";
+import NavLink from "./NavLink";
 const Navbar = () => {
+    const links = [
+        {
+            path: "/",
+            name: "Home",
+            icon: <RiHome2Line></RiHome2Line>,
+        },
+        {
+            path: "/timeline",
+            name: "Timeline",
+            icon: <TbClockHour3></TbClockHour3>,
+        },
+        {
+            path: "/stats",
+            name: "Stats",
+            icon: <PiChartLineBold></PiChartLineBold>,
+        },
+    ];
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-base-100 shadow-sm px-20">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div
@@ -47,33 +70,21 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a>
+                    <Image
+                        src={Logo}
+                        alt="KeenKeeper Logo"
+                        width={141}
+                        height={31}
+                    />
+                </a>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li>
-                        <a>Item 1</a>
-                    </li>
-                    <li>
-                        <details>
-                            <summary>Parent</summary>
-                            <ul className="p-2 bg-base-100 w-40 z-1">
-                                <li>
-                                    <a>Submenu 1</a>
-                                </li>
-                                <li>
-                                    <a>Submenu 2</a>
-                                </li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li>
-                        <a>Item 3</a>
-                    </li>
+                    {links.map((link, index) => (
+                        <NavLink key={index} link={link}></NavLink>
+                    ))}
                 </ul>
-            </div>
-            <div className="navbar-end">
-                <a className="btn">Button</a>
             </div>
         </div>
     );
