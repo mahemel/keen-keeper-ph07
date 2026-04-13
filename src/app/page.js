@@ -1,7 +1,6 @@
 import Banner from "@/components/Homepage/Banner";
 import FriendsInfo from "@/components/Homepage/FriendsInfo";
 import FriendsListing from "@/components/Homepage/FriendsListing";
-import { Suspense } from "react";
 
 export default function Home() {
   const fetchFriends = async () => {
@@ -16,10 +15,8 @@ export default function Home() {
   return <>
     <Banner></Banner>
 
-    <FriendsInfo></FriendsInfo>
+    <FriendsInfo friends={friends}></FriendsInfo>
 
-    <Suspense fallback={<div className="flex justify-center"><span className="loading loading-spinner loading-xl"></span></div>}>
-      <FriendsListing friends={friends}></FriendsListing>
-    </Suspense>
+    <FriendsListing friends={friends}></FriendsListing>
   </>;
 }

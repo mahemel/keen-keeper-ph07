@@ -1,11 +1,8 @@
-"use client";
-
-import { use } from "react";
 import FriendCard from "./FriendCard";
 
-const FriendsListing = ({ friends }) => {
-    const friendsData = use(friends);
-    console.log(friendsData);
+const FriendsListing = async ({ friends }) => {
+    const friendsData = await friends;
+
     return (
         <div>
             <h2 className="text-2xl font-semibold text-dark-black mb-4">

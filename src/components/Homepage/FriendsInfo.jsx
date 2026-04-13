@@ -1,12 +1,19 @@
-import React from "react";
+const FriendsInfo = async ({ friends }) => {
+    const friendsData = await friends;
 
-const FriendsInfo = () => {
+    const onTrackFriends = friendsData.filter(
+        (friend) => friend.status === "On-Track",
+    );
+    const almostDueFriends = friendsData.filter(
+        (friend) => friend.status === "Overdue",
+    );
+
     return (
         <div className="grid grid-cols-4 gap-6 py-10 mb-10 border-b border-[#E9E9E9]">
             <div className="card bg-base-100 text-center shadow-sm">
                 <div className="card-body py-8">
                     <h2 className="text-[32px] font-semibold text-dark-green">
-                        10
+                        {friendsData.length}
                     </h2>
                     <p className="text-lg text-light-gray">Total Friends</p>
                 </div>
@@ -14,7 +21,7 @@ const FriendsInfo = () => {
             <div className="card bg-base-100 text-center shadow-sm">
                 <div className="card-body py-8">
                     <h2 className="text-[32px] font-semibold text-dark-green">
-                        3
+                        {onTrackFriends.length || 0}
                     </h2>
                     <p className="text-lg text-light-gray">On Track</p>
                 </div>
@@ -22,7 +29,7 @@ const FriendsInfo = () => {
             <div className="card bg-base-100 text-center shadow-sm">
                 <div className="card-body py-8">
                     <h2 className="text-[32px] font-semibold text-dark-green">
-                        6
+                        {almostDueFriends.length || 0}
                     </h2>
                     <p className="text-lg text-light-gray">Need Attention</p>
                 </div>

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const FriendCard = ({ friend }) => {
-    const { name, picture, days_since_contact, status } = friend;
+    const { name, picture, days_since_contact, status, tags } = friend;
     let statusStyle = "#244D3F";
 
     if (status === "Overdue") {
@@ -32,12 +32,14 @@ const FriendCard = ({ friend }) => {
                         {days_since_contact}d ago
                     </h3>
                     <div className="flex gap-2 flex-wrap">
-                        <div className="badge rounded-full bg-[#CBFADB] text-dark-green font-medium uppercase text-[12px] border-0 px-2">
-                            Work
-                        </div>
-                        <div className="badge rounded-full bg-[#CBFADB] text-dark-green font-medium uppercase text-[12px] border-0 px-2">
-                            Work
-                        </div>
+                        {tags.map((tag, index) => (
+                            <div
+                                key={index}
+                                className="badge rounded-full bg-[#CBFADB] text-dark-green font-medium uppercase text-[12px] border-0 px-2"
+                            >
+                                {tag}
+                            </div>
+                        ))}
                     </div>
                     <div
                         className={`badge rounded-full bg-[${statusStyle}]  text-white font-medium text-[12px] border-0 px-2`}

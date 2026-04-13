@@ -1,7 +1,27 @@
-const FriendsDetail = ({ params }) => {
+import FriendCard from "@/components/Homepage/FriendCard";
+import { notFound } from "next/navigation";
+
+const fetchFriends = async () => {
+    const res = await fetch("http://localhost:3000/friends.json");
+    const friendJson = await res.json();
+    return friendJson;
+};
+
+const FriendsDetail = async ({ params }) => {
+    const { friendId } = await params;
+
+    const friends = await fetchFriends();
+
+    const friend = friends.find(
+        (friendData) => friendData.id === parseInt(friendId),
+    );
+    if (!friend) {
+        notFound();
+    }
+
     return (
         <div>
-            <h2>friends detail</h2>
+            <FriendCard friend={friend}></FriendCard>
         </div>
     );
 };
