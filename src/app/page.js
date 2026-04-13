@@ -1,7 +1,11 @@
+import Banner from "@/components/Homepage/Banner";
+import FriendsInfo from "@/components/Homepage/FriendsInfo";
+import FriendsListing from "@/components/Homepage/FriendsListing";
+
 export default function Home() {
-  return (
-    <div>
-      <h2>Hello World!</h2>
-    </div>
-  );
+  return <>
+    <Banner></Banner>
+    <FriendsInfo></FriendsInfo>
+    <FriendsListing></FriendsListing>
+  </>;
 }

@@ -21,10 +21,10 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geist.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-[#F8FAFC]">
         <Navbar></Navbar>
         <main>
-          <div className="w-277.5 mx-auto py-20">
+          <div className="w-9/12 mx-auto py-20">
             {children}
           </div>
         </main>
