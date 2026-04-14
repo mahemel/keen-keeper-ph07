@@ -2,7 +2,7 @@ import FriendCard from "@/components/Homepage/FriendCard";
 import { notFound } from "next/navigation";
 
 const fetchFriends = async () => {
-    const res = await fetch("http://localhost:3000/friends.json");
+    const res = await fetch("/friends.json");
     const friendJson = await res.json();
     return friendJson;
 };
