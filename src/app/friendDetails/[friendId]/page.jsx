@@ -1,16 +1,17 @@
 import FriendCard from "@/components/Homepage/FriendCard";
 import { notFound } from "next/navigation";
+import friends from "@/../public/friends.json";
 
-const fetchFriends = async () => {
-    const res = await fetch("/friends.json");
-    const friendJson = await res.json();
-    return friendJson;
-};
+// const fetchFriends = async () => {
+//     const res = await fetch("/friends.json");
+//     const friendJson = await res.json();
+//     return friendJson;
+// };
 
 const FriendsDetail = async ({ params }) => {
     const { friendId } = await params;
 
-    const friends = await fetchFriends();
+    // const friends = await fetchFriends();
 
     const friend = friends.find(
         (friendData) => friendData.id === parseInt(friendId),
