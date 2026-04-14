@@ -1,8 +1,6 @@
 import FriendCard from "./FriendCard";
 
-const FriendsListing = async ({ friends }) => {
-    const friendsData = await friends;
-
+const FriendsListing = ({ friends }) => {
     return (
         <div>
             <h2 className="text-2xl font-semibold text-dark-black mb-4">
@@ -10,7 +8,7 @@ const FriendsListing = async ({ friends }) => {
             </h2>
 
             <div className="grid grid-cols-4 gap-6">
-                {friendsData.map((friend) => (
+                {friends.map((friend) => (
                     <FriendCard key={friend.id} friend={friend}></FriendCard>
                 ))}
             </div>

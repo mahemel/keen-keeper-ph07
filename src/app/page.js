@@ -1,7 +1,9 @@
+"use client";
 import Banner from "@/components/Homepage/Banner";
 import FriendsInfo from "@/components/Homepage/FriendsInfo";
 import FriendsListing from "@/components/Homepage/FriendsListing";
-import friends from "@/../public/friends.json";
+
+import { useEffect, useState } from "react";
 
 export default function Home() {
   // const fetchFriends = async () => {
@@ -11,6 +13,19 @@ export default function Home() {
   // };
 
   // const friends = fetchFriends();
+
+  const [friends, setFriends] = useState([]);
+
+  useEffect(() => {
+    const fetchFriends = async () => {
+      const res = await fetch('/friends.json');
+      const data = await res.json();
+      console.log(data)
+      setFriends(data);
+    };
+    fetchFriends();
+  }, [])
+
 
 
   return <>
