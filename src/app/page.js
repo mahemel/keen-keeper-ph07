@@ -4,7 +4,7 @@ import FriendsListing from "@/components/Homepage/FriendsListing";
 
 export default function Home() {
   const fetchFriends = async () => {
-    const res = await fetch('http://localhost:3000/friends.json');
+    const res = await fetch('/friends.json');
     const friendJson = await res.json();
     return friendJson;
   };
